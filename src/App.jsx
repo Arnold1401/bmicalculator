@@ -28,7 +28,11 @@ function App() {
       <div className="mx-auto mt-20">
         <div className="grid md:grid-cols-2 sm:grid-cols-1 text-base text-white gap-3 ">
           <div className="bg-zinc-300 border rounded border-zinc-500 p-10 text-black w-3/4 mx-auto gap-2 ">
-            <h1 className="text-3xl lg:text-5xl md:text-4xl"> Calculate BMI</h1>
+            <div className="bg-[url('/assets/bmi.png')] w-64"></div>
+            <h1 className="text-3xl lg:text-5xl md:text-4xl text-center w-full">
+              {" "}
+              Calculate BMI
+            </h1>
             <div className="mt-2">
               <label> Unit Type</label>
             </div>
