@@ -20,9 +20,7 @@ Features
 
 🖥️ Demo
 
-(Optional — add your deployed link here)
-
-https://your-demo-link.com
+https://bmicalculatorporto.web.app
 
 🛠️ Tech Stack
 
