@@ -17,6 +17,8 @@ function getBmiCategory(bmi) {
 function App() {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
+  const [heightFeet, setHeightFeet] = useState("");
+  const [heightInch, setHeightInch] = useState("");
   const [unit, setUnit] = useState("metric");
   const [bmi, setBmi] = useState(null);
 
@@ -52,11 +54,11 @@ function App() {
   const bmiText = bmi ? bmi.toFixed(1) : "-";
   return (
     <>
-      <div className="mx-auto mt-20">
+      <div className="mx-auto mt-20 my-auto">
         <div className="grid md:grid-cols-2 sm:grid-cols-1 text-base text-white gap-2 ">
           <div className="bg-zinc-300 border rounded-xl border-zinc-500 p-10 text-black w-3/4 mx-auto gap-1 shadow-lg shadow-green-500/80 ">
-            <img src="/src/assets/bmi.png" className="w-1/3 mx-auto" alt="" />
-            <h1 className="text-3xl lg:text-5xl md:text-4xl text-center w-full">
+            {/* <img src="/src/assets/bmi.png" className="w-1/3 mx-auto" alt="" /> */}
+            <h1 className="text-2xl md:text-3xl lg:text-4xl text-center w-full">
               Calculate BMI
             </h1>
             <form onSubmit={handleCalculate}>
@@ -65,6 +67,8 @@ function App() {
               </div>
               <div>
                 <select
+                  onChange={(e) => setUnit(e.target.value)}
+                  value={unit}
                   name="unit"
                   id="unit"
                   className="w-full border border rounded border-zinc-500 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-500"
@@ -77,44 +81,89 @@ function App() {
               <div className="mt-2">
                 <label htmlFor="">Weight</label>
               </div>
-              <input
-                type="text"
-                name="weight"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-                placeholder="Type your weight.."
-                className="w-full border border rounded border-zinc-500 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-500"
-              />
+              {unit == "metric" ? (
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="weight"
+                    value={weight}
+                    onChange={(e) => setWeight(e.target.value)}
+                    className="w-full border border rounded border-zinc-500 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-500"
+                  />{" "}
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-zinc-600">
+                    Kg
+                  </span>
+                </div>
+              ) : (
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="weight"
+                    value={weight}
+                    onChange={(e) => setWeight(e.target.value)}
+                    className="w-full border border rounded border-zinc-500 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-500"
+                  />
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-zinc-600">
+                    Lbs
+                  </span>
+                </div>
+              )}
+
               <div className="mt-2">
                 <label htmlFor="">Height</label>
               </div>
-              <input
-                type="text"
-                placeholder="Type your height.."
-                value={height}
-                onChange={(e) => setHeight(e.target.value)}
-                className="w-full border border rounded border-zinc-500 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-500"
-              />
-              <div className="mt-2">Sex</div>
-              <select
-                name="sex"
-                id="sex"
-                className="w-full border border rounded border-zinc-500 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-500"
-              >
-                <option value="">Please select sex!</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
+              {unit == "metric" ? (
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={height}
+                    onChange={(e) => setHeight(e.target.value)}
+                    className="w-full border border rounded border-zinc-500 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-500"
+                  />
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-zinc-600">
+                    Cm
+                  </span>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={heightFeet}
+                      onChange={(e) => setHeightFeet(e.target.value)}
+                      className="w-full border border rounded border-zinc-500 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-500"
+                    />
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-zinc-600">
+                      Ft
+                    </span>
+                  </div>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={heightInch}
+                      onChange={(e) => setHeightInch(e.target.value)}
+                      className="w-full border border rounded border-zinc-500 focus:outline-none focus:ring focus:border-green-500 focus:ring-green-500"
+                    />
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-zinc-600">
+                      In
+                    </span>
+                  </div>
+                </div>
+              )}
+
               <button
                 type="submit"
                 className="bg-green-600 w-full rounded-full p-2 font-bold text-white mt-3 hover:bg-green-500 cursor-pointer"
               >
                 Calculate
               </button>
+              <label className="text-sm text-gray-500">
+                * ages: 2-100 years old
+              </label>
             </form>
           </div>
           <div className="bg-zinc-300 border rounded-xl border-zinc-500 p-10 text-black w-3/4 mx-auto gap-1 shadow-lg shadow-green-500/80 ">
-            <h1 className="text-3xl lg:text-5xl md:text-4xl">BMI Result</h1>
+            <h1 className="text-2xl lg:text-4xl md:text-3xl">BMI Result</h1>
             {/* Result */}
             <div className="mt-6 border-t border-slate-200 pt-4">
               <p className="text-xs uppercase tracking-wide text-slate-500 mb-1">
