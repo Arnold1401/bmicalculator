@@ -11,15 +11,11 @@ export const Navbar = () => {
       />
       <div className="relative items-center justify-center mx-auto">
         {/* gambar2 yang kecil mepet */}
-        <img
-          src="/src/assets/bmi.png"
-          className="w-10 hidden lg:block"
-          alt=""
-        />
+        <img className="w-10 hidden lg:block" alt="" />
         <h1 className="text-2xl font-bold text-zinc-300">BMI Calculator</h1>
       </div>
     </div>
 
-    // artinya kalau mau lg nya saja yang dikendalikan
+    // artinya kalau mau lg nya saja yang dikendalikan test git
   );
 };
