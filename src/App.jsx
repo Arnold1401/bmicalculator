@@ -26,11 +26,10 @@ function App() {
   return (
     <>
       <div className="mx-auto mt-20">
-        <div className="grid md:grid-cols-2 sm:grid-cols-1 text-base text-white gap-3 ">
-          <div className="bg-zinc-300 border rounded border-zinc-500 p-10 text-black w-3/4 mx-auto gap-2 ">
-            <div className="bg-[url('/assets/bmi.png')] w-64"></div>
+        <div className="grid md:grid-cols-2 sm:grid-cols-1 text-base text-white gap-2 ">
+          <div className="bg-zinc-300 border rounded-xl border-zinc-500 p-10 text-black w-3/4 mx-auto gap-1 shadow-lg shadow-green-500/80 ">
+            <img src="/src/assets/bmi.png" className="w-1/3 mx-auto" alt="" />
             <h1 className="text-3xl lg:text-5xl md:text-4xl text-center w-full">
-              {" "}
               Calculate BMI
             </h1>
             <div className="mt-2">
