@@ -1,3 +1,5 @@
+import VisitorCounter from "./visitorcounter";
+
 const Footer = () => {
   return (
     // ketika md dia kecil row kebawah kl pas besar dia col

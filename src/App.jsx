@@ -1,4 +1,5 @@
 import { useState } from "react";
+import VisitorCounter from "./components/visitorcounter";
 
 function getBmiCategory(bmi) {
   if (!bmi || isNaN(bmi)) return "";
@@ -160,6 +161,8 @@ function App() {
               <label className="text-sm text-gray-500">
                 * ages: 2-100 years old
               </label>
+
+              <VisitorCounter />
             </form>
           </div>
           <div className="bg-zinc-300 border rounded-xl border-zinc-500 p-10 text-black w-3/4 mx-auto gap-1 shadow-lg shadow-green-500/80 ">
